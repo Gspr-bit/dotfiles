@@ -40,6 +40,7 @@
     pkgs.clang
     pkgs.python3
     pkgs.fastfetch
+    pkgs.rewaita
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -91,6 +92,20 @@
     };
   };
 
+  services.cliphist = {
+    enable = true;
+    systemdTargets = ["config.wayland.systemd.target"];
+
+    extraOptions = [
+      "-max-dedupe-search"
+      "10"
+      "-max-items"
+      "500"
+    ];
+    allowImages = true;
+
+  };
+
   dconf = {
     enable = true;
     settings = {
@@ -109,7 +124,8 @@
           # Alternatively, you can manually pass UUID as a string.
           pkgs.gnomeExtensions.blur-my-shell.extensionUuid
           pkgs.gnomeExtensions.just-perfection.extensionUuid
-          pkgs.gnomeExtensions.dash-to-dock.extensionUuid
+          # pkgs.gnomeExtensions.dash-to-dock.extensionUuid
+          pkgs.gnomeExtensions.user-themes.extensionUuid
           # ...
         ];
       };

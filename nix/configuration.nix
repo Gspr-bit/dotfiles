@@ -27,6 +27,7 @@
   qt = {
     enable = true;
     style = "adwaita-dark";
+    platformTheme = "gnome";
   };
 
   # Configure network proxy if necessary
@@ -184,10 +185,21 @@
     clamav
     gnome-tweaks
     distrobox
+    file-roller
+    cliphist
 
     gnomeExtensions.blur-my-shell
     gnomeExtensions.just-perfection
     gnomeExtensions.dash-to-dock
+    gnomeExtensions.user-themes
+
+    # qt themes
+    # Themes the app titlebars
+    qadwaitadecorations
+    qadwaitadecorations-qt6
+    # Themes the apps
+    qgnomeplatform
+    qgnomeplatform-qt6
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
